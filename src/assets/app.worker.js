@@ -2,7 +2,9 @@
 
 addEventListener('message', ({ data }) => {
   const response = `worker response to ${data}`;
-  fetch(data).then((r) => {
+  fetch(data, {
+    // 'mode': 'no-cors'
+  }).then((r) => {
     console.log('response', response);
     postMessage(response);
   });
